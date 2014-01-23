@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Yay!</title>
+	<link rel="stylesheet" href="{{ STATIC_URL }}bootstrap3.yeti.css">
+</head>
+<body>
+	<div class="container">
+		<h1>Pseudo-models</h1>
+		<div class="row">
+			<table class="table table-condensed table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Phone</th>
+						<th>Address</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for obj in ten_objects %}
+					<tr>
+						<td>{{ obj.name }}</td>
+						<td>{{ obj.phone_number }}</td>
+						<td>{{ obj.address }}</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		<h2>Keys available in pseudo-models</h2>
+		<ul>
+		{% for key in object.keys %}<li>{{ key }}</li>{% endfor %}
+		</ul>
+	</div>
+</div>

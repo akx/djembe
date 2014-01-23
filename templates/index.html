@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Yay!</title>
+	<link rel="stylesheet" href="{{ STATIC_URL }}bootstrap3.yeti.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8">
+				<h1>Yay! It works.</h1>
+				<p class="lead">
+					Here, have a beautiful rendition of the Django Pony.
+					<br><small>Just to test that static assets work, of course.</small>
+				</p>
+				<p>Some things you may want to know...</p>
+				<ul>
+					<li>
+						Templates (<code>.jinja</code> for Jinja2 through the <a href="https://github.com/coffin/coffin/">Coffin</a> library; <code>.html</code> for Django Templates) live underneath <code>templates/</code>
+						(that is <code>{{ settings.TEMPLATE_DIRS.0 }}</code>) are mapped directly to URLs.<br>
+						That is, if you go to <a href="/test/">/test/</a>, either <code>templates/test.html</code> or <code>templates/test.jinja</code> will be rendered, depending on which one can be found.
+					</li>
+					<li>
+						Static files live underneath <code>static/</code> (that is <code>{{ settings.STATICFILES_DIRS.0 }}</code>)
+						and are mapped to <code>{{ STATIC_URL }}</code>.
+						<ul>
+							<li>The <a href="http://bootswatch.com/yeti/">Yeti Bootstrap 3 theme</a> is available as <code>bootstrap3.yeti.css</code> directly in the static file root.</li>
+							<li><small>(And so is that lovingly hand-traced Django Pony, as <code>pwny.png</code>.)</small></li>
+						</ul>
+					</li>
+					<li>A number of pseudo-model objects are made available for templates. You can see them in action over at <a href="/models/">/models/</a>.<br>
+						Each pseudo-model has at least <b>{{ object.keys|length }}</b> different attributes &ndash; see the Models page for a list.<br>Reasonable care is taken to try and ensure the objects do not change between page loads (though each URL gets a different set of objects). This, however, depends on how one iterates over their attributes.
+						<ul>
+							<li><code>object</code> is a single pseudo-object.</li>
+							<li><code>ten_objects</code> is a list of 10 pseudo-objects.</li>
+							<li><code>fifty_objects</code> is a list of 50 pseudo-objects.</li>
+							<li><code>paginator</code> is a paginator of 5000 pseudo-objects, 30 per page.</li>
+						</ul>
+					</li>
+				</ul>
+				<p>Okay, I think that's about it. Happy coding!</p>
+			</div>
+			<div class="col-md-4"><br><img src="{{ STATIC_URL }}pwny.png" class="img-responsive"></div>
+		</div>
+		
+	</div>
+	
+	
+</body>
+</html>
